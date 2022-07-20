@@ -1,2 +1,2 @@
 # goit-markup-hw-05
- Iurii Kyrychenko HW2
+ Iurii Kyrychenko HW5
