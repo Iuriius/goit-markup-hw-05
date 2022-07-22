@@ -11,6 +11,8 @@
     --box-shadow-color: rgba(0, 0, 0, 0.15);
     --color-grey: #ECECEC;
     --social-links-grey: #AFB1B8;
+    --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    --backdrop-color: rgba(0, 0, 0, 0.2)
 }
 
 body {
@@ -83,6 +85,10 @@ section {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .nav:hover,
@@ -100,6 +106,11 @@ section {
     color: var(--secondary-color);
     text-decoration: none;
     padding: 32px 0;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+
 }
 
 .contacts-mail:hover,
@@ -117,6 +128,11 @@ section {
     padding: 32px 0;
     display: flex;
     align-items: center;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+
 }
 
 .contacts-phone:hover,
@@ -137,11 +153,29 @@ section {
 .active-page {
     text-decoration: none;
     font-weight: 500;
-    font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--accent-color);
     padding: 32px 0;
+    position: relative;
+    bottom: -2px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+    transition-delay: 0;
+}
+
+.active-page::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    border: var(--accent-color);
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    position: relative;
+    top: 28px;
 }
 
 .list {
@@ -200,6 +234,9 @@ section {
     margin-top: 30px;
     padding: 10px 32px;
 
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .button:hover,
@@ -220,6 +257,10 @@ section {
     border: none;
     cursor: pointer;
     padding: 6px 22px;
+
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .buttons-portfolio:hover,
@@ -318,7 +359,17 @@ section {
     line-height: 1.71;
     letter-spacing: 0.03em;
     text-decoration: none;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
+
+.address:hover,
+.address:focus {
+    color: var(--accent-color);
+}
+
 
 .footer-contacts {
     font-style: normal;
@@ -327,14 +378,73 @@ section {
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .footer-contacts:hover,
 .footer-contacts:focus {
+    color: var(--accent-color);
+}
+
+.example-card {
+    display: block;
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+}
+
+.example-card:hover,
+.example-card:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.example-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.example-overlay {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    transform: translateY(100%);
+
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
+}
+
+.example-overlay:hover,
+.example-overlay:focus {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text-overlay {
     color: var(--tertiary-color);
+    background-color: rgba(33, 150, 243, 0.9);
+    font-size: 18px;
+    line-height: 28px;
+    padding: 63px 24px;
+}
+
+.container-example-card-descr {
+    border: 1px solid #EEEEEE;
+    border-top: none;
+    padding: 20px 24px;
 }
 
 .example-card-name {
+    text-decoration: none;
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
@@ -349,14 +459,7 @@ section {
     letter-spacing: 0.03em;
 }
 
-.example-card-block {
-    display: block;
-}
 
-.example-card-block:hover,
-.example-card-block:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
 
 .container {
     width: 1200px;
@@ -387,10 +490,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-
-/* svg {
-    fill: #AFB1B8;
-} */
 
 .container-benefits {
     display: flex;
@@ -425,11 +524,7 @@ img {
     gap: 30px;
 }
 
-.container-example-card-descr {
-    border: 1px solid #EEEEEE;
-    border-top: none;
-    padding: 20px 24px;
-}
+
 
 .socials {
     display: flex;
@@ -446,6 +541,10 @@ img {
     height: 44px;
     border-radius: 50%;
     color: var(--social-links-grey);
+
+    transition-property: color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .social-links:hover,
@@ -478,6 +577,10 @@ footer {
     fill: var(--tertiary-color);
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+
+    transition-property: background-color, border-radius, fill;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .social-links-footer:hover,
@@ -510,6 +613,10 @@ footer {
     border-radius: 4px;
     width: 170px;
     height: 92px;
+
+    transition-property: color, border;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic);
 }
 
 .clientsbox:hover,
@@ -526,4 +633,64 @@ footer {
 
 .svg-icon {
     fill: currentColor;
+}
+
+.whatwedo-text {
+    font-weight: 700;
+    line-height: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--tertiary-color);
+    background: rgba(47, 48, 58, 0.8);
+    position: relative;
+    top: -70px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop-color);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+
+    transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.backdrop.is-hidden.modal {
+    opacity: 1;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 528px;
+    height: 581px;
+    transform: translate(-50%, -50%);
+    background-color: var(--tertiary-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
