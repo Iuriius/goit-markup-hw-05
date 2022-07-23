@@ -40,13 +40,13 @@
                 <li>
                     <a class="contacts-mail" href="mailto:info@devstudio.com"><svg class="contacts-mail-icon" width="16"
                             height="12">
-                            <use href="./images/icons.svg#envelope" </use>
+                            <use href="./images/icons.svg#envelope"> </use>
                         </svg>info@devstudio.com</a>
                 </li>
                 <li>
                     <a class="contacts-phone" href="tel:+38096111111"><svg class="contacts-phone-icon" width="10"
                             height="16">
-                            <use href="./images/icons.svg#phone" </use>
+                            <use href="./images/icons.svg#phone"> </use>
                         </svg>+38 096 111 11 11</a>
                 </li>
             </ul>
@@ -118,15 +118,15 @@
             <div class="container">
                 <h2 class="whatwedo-h">Чем мы занимаемся</h2>
                 <ul class="list container-whatwedo">
-                    <li>
+                    <li class="whatwedo-item">
                         <img src="./images/programmer.jpg" alt="программист" width="370" height="294">
                         <p class="whatwedo-text">Десктопні додатки</p>
                     </li>
-                    <li>
+                    <li class="whatwedo-item">
                         <img src="./images/ui-designer.jpg" alt="UI дизайнер" width="370" height="294">
                         <p class="whatwedo-text">Мобільні додатки</p>
                     </li>
-                    <li>
+                    <li class="whatwedo-item">
                         <img src="./images/creative-artist.jpg" alt="креативщик" width="370" height="294">
                         <p class="whatwedo-text">Дизайнерські рішення</p>
                     </li>
@@ -353,7 +353,7 @@
                     <ul class="list">
                         <li class="footer-info">
                             <a class="address" href="https://goo.gl/maps/pX6Tc8cu8p1majoq9" target="_blank"
-                                rel="noopener noreferrer">г.Киев, пр-т Леси Украинки, 26</></a>
+                                rel="noopener noreferrer">г.Киев, пр-т Леси Украинки, 26</a>
                         </li>
                         <li class="footer-info">
                             <a class="footer-contacts" href="mailto:info@devstudio.com">info@devstudio.com</a>
@@ -404,18 +404,16 @@
         </div>
     </footer>
 
+    <div class="backdrop is-hidden" data-modal></div>
+    <div class="modal">
+        <button class="modal-btn-close" data-modal-close>
+            <svg width="30" height="30">
+                <use href="./images/icons.svg#icon-close"></use>
+            </svg> </button>
+    </div>
 
-    <div class="backdrop is-hidden" data-modal</div>
-        <div class="modal">
-            <button class="modal-btn" data-modal-close>
-                <svg width="30" height="30">
-                    <use href="../images/icons.svg#icon-close"></use>
-                </svg> </button>
-        </div>
 
-
-        <script src="../js/modal.js"></script>
-
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
